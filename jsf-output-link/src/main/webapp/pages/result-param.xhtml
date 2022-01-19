@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:ui="http://java.sun.com/jsf/facelets">
+	<head>
+		<title>Resultado con parámetros</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		
+		<script type="text/javascript">
+			function init(){
+				var nombre = getURLParameter('nombre');
+			}
+		
+			function getURLParameter(sParam){
+			    var sPageURL = window.location.search.substring(1);
+			    var sURLVariables = sPageURL.split("&amp;");
+			    
+			    for (var i = 0; i &lt; sURLVariables.length; i++) {
+			        var sParameterName = sURLVariables[i].split('=');
+			        
+			        if (sParameterName[0] == sParam) {
+				        document.getElementById('container').innerHTML = '' + sParam + ': ' + sParameterName[1];
+			        }
+			    }
+			}
+		</script>
+		
+	</head>
+	<body onload="init();">
+		OutputLink Result
+			<div id="container">
+			</div>
+	</body>
+</html>
